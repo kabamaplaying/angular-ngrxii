@@ -15,4 +15,12 @@ const initialState: State = {
   action: null,
   done: false,
   error: null
-} 
+}
+
+const reducer = createReducer(
+  initialState,
+  on(PostActions.getAllPost, state => state),
+  on(PostActions.getAllPostSuccess, (state: State, {payload}) => {
+    return {...state, data: payload, done: false};
+  }),
+)
