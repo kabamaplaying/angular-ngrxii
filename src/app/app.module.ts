@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import * as fromScoreboard from './scoreboard.reducer';
-
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+
 import { LoginPagecomponentComponent } from './login-pagecomponent/login-pagecomponent.component';
+import { PostService } from './post.service';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, StoreModule.forRoot({ game: fromScoreboard.reducer }) ],
+  imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, HelloComponent, LoginPagecomponentComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [PostService]
 })
 export class AppModule { }
