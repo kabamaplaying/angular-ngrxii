@@ -22,8 +22,7 @@ export class AppComponent  {
       .pipe(
         map(post => {
           this.postList = post.data;
-          this.todoError = post.error;
-          console.log(this.postList)
+          this.postError = post.error;
         })
       )
       .subscribe();
@@ -38,5 +37,5 @@ export class AppComponent  {
   Title: string = '';
   IsCompleted: boolean = false;
 
-  todoError: Error = null;
+  postError: Error = null;
 }
