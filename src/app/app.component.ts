@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as PostActions from './post.action';
-import Post from './post';
+import { Post }  from './post';
 import { State } from './post.reducer';
 
 @Component({
