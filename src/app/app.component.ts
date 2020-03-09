@@ -7,7 +7,7 @@ import { Post } from './post';
 import { State } from './post.reducer';
 import { PostService } from './post.service';
 import * as PostSelector from './store/post.selector';
-
+import { PostImplFacadeService } from './services/facade/post-facade';
 
 @Component({
   selector: 'my-app',
@@ -18,11 +18,15 @@ export class AppComponent implements  OnInit{
   post$: Observable<State>;
   postSubscription: Subscription;
   postList: Observable<Post[]>; 
+    postListW: Post[]; 
   Title: string = '';
   IsCompleted: boolean = false;
   postError: Error = null;
 
-  constructor(private store: Store<{ posts: State }>, private postService: PostService) {
+  constructor(private store: Store<{ posts: State }>, 
+     private postService: PostService,
+     private facade: PostImplFacadeService
+     ) {
     this.post$ = store.select(PostSelector.getPostState)
   }
   ngOnInit() {
@@ -36,6 +40,7 @@ export class AppComponent implements  OnInit{
       )
     
 
+      this.postList = this.facade.getAllPost();
     
 
   }

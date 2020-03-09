@@ -6,6 +6,7 @@ import { PostState } from './post.reducer';
 import * as PostActions from './post.action';
 import { Observable, of } from 'rxjs';
 import { map, concatMap, tap, catchError } from 'rxjs/operators';
+
 @Injectable()
 export class PostService {
 
