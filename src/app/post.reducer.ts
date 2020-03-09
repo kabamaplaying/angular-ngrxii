@@ -20,8 +20,8 @@ const initialState: PostState = {
 const reducer = createReducer(
   initialState,
   on(PostActions.getAllPost, state => state),
-  on(PostActions.getAllPostSuccess, (state: PostState, {payload}) => {
-    return {...state, data: payload, done: false};
+  on(PostActions.getAllPostSuccess, (state: PostState, { payload }) => {
+    return { ...state, post: payload, done: false };
   }),
 )
 

@@ -1,6 +1,6 @@
 <strong>Datos del stoareg</strong>
 <ul>
-	<li *ngFor="let post of postList">
+	<li *ngFor="let post of postList | async">
 		<div> <strong class="title">{{post.title}}</strong>
 			<p>{{post.id}} - {{post.body}}</p>
 			</div>
