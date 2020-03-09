@@ -9,9 +9,9 @@ export const getPostStateList:MemoizedSelector<object, PostSelectorState> = crea
 
 export const getPostState = createSelector(
   getPostStateList, 
-  (state: PostSelectorState) => state.post
+  (state: PostSelectorState) => state.post.post
 );
 /** carga un post por el identificador del usuario*/
 export const getByUserId = (userId: string ) => createSelector(getPostStateList, 
- (state: PostSelectorState) => state[userId]
+ (state: PostSelectorState) => state.post[userId]
 );

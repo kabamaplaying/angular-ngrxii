@@ -1,4 +1,7 @@
 <strong>Datos del stoareg</strong>
+<div>
+  Mis datos
+  <strong> {{(postById$ | async) | json}} </strong></div>
 <ul>
 	<li *ngFor="let post of postList | async">
 		<div> <strong class="title">{{post.title}}</strong>
@@ -6,3 +9,4 @@
 			</div>
 	</li>
 </ul>
+

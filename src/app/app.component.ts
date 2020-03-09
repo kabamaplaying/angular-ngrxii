@@ -14,34 +14,35 @@ import { PostImplFacadeService } from './services/facade/post-facade';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements  OnInit{
+export class AppComponent implements OnInit {
   post$: Observable<State>;
   postSubscription: Subscription;
-  postList: Observable<Post[]>; 
-    postListW: Post[]; 
+  postList: Observable<Post[]>;
+  postListW: Post[];
+  postById$: Observable<Post>;
   Title: string = '';
   IsCompleted: boolean = false;
   postError: Error = null;
 
-  constructor(private store: Store<{ posts: State }>, 
-     private postService: PostService,
-     private facade: PostImplFacadeService
-     ) {
+  constructor(private store: Store<{ posts: State }>,
+    private postService: PostService,
+    private facade: PostImplFacadeService
+  ) {
     this.post$ = store.select(PostSelector.getPostState)
   }
   ngOnInit() {
-   this.postService.gerPostFromStorage().subscribe();
-  this.postList = this.post$
+    this.postService.gerPostFromStorage().subscribe();
+    this.postList = this.post$
       .pipe(
         tap(console.log),
-         map(post => {
-          return  post as Post[];
-         })
+        map(post => {
+          return post as Post[];
+        })
       )
-    
 
-      this.postList = this.facade.getAllPost();
-    
+
+    this.postList = this.facade.getAllPost();
+    this.postById$ = this.facade.getByUserId('1');
 
   }
 

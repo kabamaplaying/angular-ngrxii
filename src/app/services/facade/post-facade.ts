@@ -14,13 +14,14 @@ export class PostImplFacadeService implements PostFacadeService {
 
   subscribedAssets$: Observable<Post[]> = this.store.select(
     postSelector.getPostStateList
-  ).pipe(map((postState) => { return postState.post as Post[];}));
+  ).pipe(map((postState) => { return postState.post as Post[]; }));
   constructor(private store: Store<EntityState<reducerState.PostSelectorState>>) { }
 
-  getByUserId(userId: string): Observable<Post> {
-    return this.store.select(postSelector.getByUserId(userId));
+  getByUserId(userId: string): Observable<any> {
+    this.store.select(postSelector.getByUserId(userId)) 
+    return this.store.select(postSelector.getByUserId(userId)); 
   }
   getAllPost(): Observable<Post[]> {
-    return this.subscribedAssets$;     
-}
+    return this.subscribedAssets$;
+  }
 }
