@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import * as PostActions from './post.action';
 import { Post } from './post';
-export interface State {
+export interface PostState {
   data: Post[];
   selected: Post;
   action: string;
@@ -9,7 +9,7 @@ export interface State {
   error?: Error;
 }
 
-const initialState: State = {
+const initialState: PostState = {
   data: [],
   selected: null,
   action: null,
@@ -20,14 +20,14 @@ const initialState: State = {
 const reducer = createReducer(
   initialState,
   on(PostActions.getAllPost, state => state),
-  on(PostActions.getAllPostSuccess, (state: State, {payload}) => {
+  on(PostActions.getAllPostSuccess, (state: PostState, {payload}) => {
     return {...state, data: payload, done: false};
   }),
 )
 
 export function PostReducer(
-  state: State | undefined,
+  state: PostState | undefined,
   action: Action
-): State {
+): PostState {
   return reducer(state, action);
 }

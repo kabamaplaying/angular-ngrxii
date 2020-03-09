@@ -18,7 +18,7 @@ export class PostEffectService {
       mergeMap(action =>
         this.service.getPost().pipe(
           map((posts: Post[]) => {
-             return  PostActions.getAllPostSuccess({payload: posts})
+             return  PostActions.getAllPost()
           }),
           catchError((error: Error) => {
             return of(PostActions.getPostError(error));

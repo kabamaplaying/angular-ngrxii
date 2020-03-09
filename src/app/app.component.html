@@ -1,4 +1,8 @@
-
-<p>
-  Start editing to see some magic happen :)
-</p>
+<strong>Datos del stoareg</strong>
+<ul>
+	<li *ngFor="let post of postList">
+		<div> <strong class="title">{{post.title}}</strong>
+			<p>{{post.id}} - {{post.body}}</p>
+			</div>
+	</li>
+</ul>
