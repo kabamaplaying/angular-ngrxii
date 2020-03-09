@@ -21,11 +21,10 @@ export class PostService {
     return this.getPost().pipe(
       map((post: Post[]) => { return this.store.dispatch(PostActions.getAllPostSuccess({ payload: post })); }),
       catchError((error: Error) => {
-        this.store.dispatch(PostActions.getPostError(error));
-        return of(PostActions.getPostError(error)); 
+        return of(PostActions.getPostError(error));
       }
       )
-    )
+  )
   }
 
 }

@@ -29,7 +29,7 @@ export class AppComponent implements  OnInit{
    this.postService.gerPostFromStorage().subscribe();
   this.postList = this.post$
       .pipe(
-        //tap(console.log),
+        tap(console.log),
          map(post => {
           return  post as Post[];
          })

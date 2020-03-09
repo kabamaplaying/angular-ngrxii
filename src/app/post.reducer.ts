@@ -2,7 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as PostActions from './post.action';
 import { Post } from './post';
 export interface PostState {
-  data: Post[];
+  post: Post[];
   selected: Post;
   action: string;
   done: boolean;
@@ -10,7 +10,7 @@ export interface PostState {
 }
 
 const initialState: PostState = {
-  data: [],
+  post: [],
   selected: null,
   action: null,
   done: false,

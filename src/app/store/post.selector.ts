@@ -2,7 +2,7 @@ import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/s
 import * as reducerState  from '../post.reducer';
 
 export interface PostSelectorState {
-  data: reducerState.PostState;
+  post: reducerState.PostState;
 }
 
 export const getPostStateList = createFeatureSelector<PostSelectorState>('posts');
